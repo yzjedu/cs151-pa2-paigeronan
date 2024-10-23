@@ -1,6 +1,10 @@
-# Code goes here and DO NOT FORGET INTRO COMMENTS
-from random import randint
-from random import randint
+# Programmer:Paige
+# Course:CS*151
+# Due Date:10/23/2024
+# Assignment: pa02
+
+#purpose: game of sticks with three players one being a computer
+
 import random
 def play():
     sticks = int(input("How many sticks in total for the game(10-100):"))
@@ -29,6 +33,7 @@ def play():
                 take_sticks = int(input("How many sticks to you want to take?"))
             sticks = sticks - take_sticks
 
+            #to find whose turn it is
             player = player + 1
             if player > 3:
                 player = 1
@@ -36,6 +41,7 @@ def play():
     if player == 0:
         player = 3
     print("Player", player, "lost.")
+
     loses = 0
     if sticks == 0:
         player_lose = player
@@ -44,6 +50,8 @@ def play():
 
 
 play()
+
+#ask user if they want to play again
 play_again = input("Would you like to play again? (y/n) ")
 while play_again == "y":
     play()
