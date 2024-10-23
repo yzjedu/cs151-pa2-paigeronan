@@ -48,7 +48,7 @@ play_again = input("Would you like to play again? (y/n) ")
 while play_again == "y":
     play()
     play_again = input("Would you like to play again? (y/n) ")
-if play_again == "n":
-    print("Thanks for playing!")
-else:
-    print("Please choose either 'y' or 'n'")
+    if play_again == "n":
+        print("Thanks for playing!")
+    else:
+        print("Please choose either 'y' or 'n'")
