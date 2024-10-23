@@ -1,5 +1,6 @@
 # Code goes here and DO NOT FORGET INTRO COMMENTS
 from random import randint
+from random import randint
 import random
 def play():
     sticks = int(input("How many sticks in total for the game(10-100):"))
@@ -14,6 +15,10 @@ def play():
 
         if player == 3:
             computer_sticks = random.randint(1, 3)
+            if sticks < 3:
+                computer_sticks = random.randint(1, 2)
+            elif sticks < 2:
+                computer_sticks = 1
             sticks = sticks - computer_sticks
             print("Player 3 takes", computer_sticks, "sticks")
             player = 1
@@ -32,15 +37,18 @@ def play():
         player = 3
     print("Player", player, "lost.")
     loses = 0
-    player = loses + 1
-    print("player", player, "has", loses, "loses")
+    if sticks == 0:
+        player_lose = player
+        loses += 1
+        print(f"Player {player} has {loses} loses")
 
 
 play()
 play_again = input("Would you like to play again? (y/n) ")
-if play_again == "y":
+while play_again == "y":
     play()
-elif play_again == "n":
+    play_again = input("Would you like to play again? (y/n) ")
+if play_again == "n":
     print("Thanks for playing!")
 else:
     print("Please choose either 'y' or 'n'")
